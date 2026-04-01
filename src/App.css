@@ -1,0 +1,182 @@
+.m-b-1 { margin-bottom: 0.5rem; }
+.m-b-2 { margin-bottom: 1rem; }
+.m-b-3 { margin-bottom: 2rem; }
+.m-t-3 { margin-top: 2rem; }
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.flex-align {
+  display: flex;
+  align-items: center;
+}
+
+.gap-2 { gap: 1rem; }
+
+/* Dashboard Grid */
+.dashboard-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .dashboard-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Insight Cards */
+.insight-item h4 {
+  font-size: 1.25rem;
+  margin: 0.25rem 0;
+}
+
+.progress-bar {
+  height: 8px;
+  width: 100%;
+  border-radius: 4px !important;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+/* Table Styles */
+.finance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.finance-table th {
+  text-align: left;
+  padding: 1.25rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+
+.finance-table td {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.table-row:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.type-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.type-icon.income { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+.type-icon.expense { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+
+.action-btn {
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.action-btn.delete:hover { color: var(--danger); }
+
+/* Filter Bar */
+.search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  width: 300px;
+}
+
+.search-wrap input {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  width: 100%;
+  outline: none;
+}
+
+.select-wrap {
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+}
+
+.select-wrap select {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 0.6rem 0.5rem;
+  outline: none;
+  font-family: inherit;
+}
+
+.select-wrap select option {
+  background: var(--bg-dark);
+}
+
+/* Component specifics */
+.stats-icon {
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+}
+
+.chart-toggles {
+  display: flex;
+  padding: 0.25rem;
+  border-radius: var(--radius-sm) !important;
+}
+
+.chart-toggles button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+}
+
+.chart-toggles button.active {
+  background: var(--primary);
+  color: white;
+}
+
+.btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.btn.primary { background: var(--primary); color: white; }
+.btn.primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+.btn.outline { border: 1px solid var(--border); color: var(--text-primary); }
+.btn.outline:hover { background: var(--border); }
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

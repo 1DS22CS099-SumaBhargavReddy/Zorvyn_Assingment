@@ -1,0 +1,65 @@
+ZORVYN FINANCE DASHBOARD - PROJECT CHEAT SHEET & EVALUATION GUIDE
+============================================================
+
+1. DESIGN AND CREATIVITY
+------------------------
+- Visual quality: High-end Glassmorphic UI with backdrop blurs (12px), semi-transparent surfaces, and subtle gradients.
+- Aesthetic: Curated HSL color palettes for both Dark and Light modes.
+- Animations: Used Anime.js for smooth 3D tilt effects on dashboard cards and staggered entry transitions for all pages.
+- Data Presentation: Intuitive layout using Grid-3 and Grid-2 systems, prioritizing key financial summaries (Total Balance, Burn Rate) at the top.
+
+2. RESPONSIVENESS
+-----------------
+- Mobile-First: Built with a responsive CSS grid system that collapses correctly on smaller viewports.
+- Adaptive Charts: Chart.js configurations use `maintainAspectRatio: false` within flexible containers to ensure readability on all devices.
+- Navbar: Responsive navigation links and a compact role switcher that adapts to header size.
+
+3. FUNCTIONALITY
+----------------
+- Full CRUD Flow: Admin users can Add, Edit, and Delete transactions with instant UI feedback.
+- Secure Admin Mode: Implemented a password-protected login layer (Username: admin, Password: admin@123) to unlock management tools.
+- KPI Insights: Dedicated analytics page with complex visualizations like categorical Radar charts and Savings Ratio gauges.
+- API Documentation: Integrated Scalar API reference at `/docs` using a real OpenAPI v3.0 specification.
+
+4. USER EXPERIENCE
+------------------
+- Interaction Design: Subtle hover scales, 3D tilts, and immediate visual confirmation for actions (modal reveals, status badges).
+- Navigation: Clear, semantic routing (Overview, Transactions, KPI Insights, API Docs).
+- Productivity Features: Search-as-you-type filtering, category sorting, and a password visibility toggle in the login modal.
+- Theming: Global Light/Dark mode toggle with state persistence across browser sessions.
+
+5. TECHNICAL QUALITY
+--------------------
+- Modularity: Clean separation of UI components (src/components) and business logic (src/context).
+- Coding Standards: Semantic HTML5, CSS custom properties for theming, and modern React (Hooks, useMemo, useEffect).
+- Scalability: Centralized configuration for categories and initial data (src/data/initialData.js).
+
+6. STATE MANAGEMENT APPROACH
+----------------------------
+- Architecture: React Context API (FinanceContext.jsx) serves as the Single Source of Truth.
+- Data Consistency: All components consume stats and transactions from a centralized state.
+- Persistence: Used standard localStorage APIs to persist theme preferences and transaction history, ensuring a "save-as-you-go" experience.
+
+7. DOCUMENTATION
+----------------
+- README.md: Comprehensive guide including feature lists, tech stack, and step-by-step setup instructions.
+- API Spec: Detailed openapi.json file defining the project's mock backend services.
+- Inline Documentation: Code follows clean-code principles with descriptive naming and modular exports.
+
+8. ATTENTION TO DETAIL
+----------------------
+- Edge Case Handling: KPI charts handle "Zero Income" gracefully by displaying 0% instead of calculated "Infinity".
+- UI Polish: Custom scrollbars, status-specific badges (Income/Expense), and consistent iconography using Lucide-React.
+- Security: Masked password input with a "Show" toggle for accessibility and convenience during evaluation.
+
+PROJECT DETAILS SUMMARY
+-----------------------
+Framework: React (Vite)
+Styling: Vanilla CSS (Custom Glass System)
+Animations: Anime.js (3D Perspective)
+Icons: Lucide-React
+State: React Context + LocalStorage
+Documentation Tool: Scalar
+Admin Link: admin / admin@123
+KPI Section: /kpi (Radar & Gauge Analytics)
+-----------------------
