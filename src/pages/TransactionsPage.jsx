@@ -4,7 +4,7 @@ import TransactionModal from '../components/TransactionModal';
 import { useFinance } from '../context/FinanceContext';
 import { Search, Filter, Plus, FileDown, FileText, FileUp, Download, ChevronDown } from 'lucide-react';
 import { categories } from '../data/initialData';
-import jsPDF from 'jspdf';
+import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
 const TransactionsPage = () => {
