@@ -64,6 +64,36 @@ The Zorvyn Finance Dashboard follows a **Modular Frontend-Only Architecture**, p
 - **`useMemo`**: Essential for performant on-the-fly calculations of KPIs and chart data structures.
 - **`useRef`**: Used for imperative access to Chart.js instances (e.g., Reset Zoom functionality).
 
+## 🌳 Architecture Tree
+
+```text
+Zorvyn_Assingment/
+├── src/
+│   ├── components/          # Reusable UI Components
+│   │   ├── FinanceChart.jsx # Interactive Data Visuals (Zoomable)
+│   │   ├── LoginModal.jsx   # Admin Security & Auth UI
+│   │   ├── Navbar.jsx       # Global Navigation & Mode Toggles
+│   │   ├── StatsCard.jsx    # Summary Metrics with 3D Interaction
+│   │   ├── TransactionModal.jsx # Create/Edit Management Interface
+│   │   └── TransactionTable.jsx # Dynamic Grid with Filtering
+│   ├── context/
+│   │   └── FinanceContext.jsx # Global State & Persistence (Context API)
+│   ├── data/
+│   │   └── initialData.js   # Seed Data & Category Definitions
+│   ├── docs/
+│   │   └── openapi.json     # Scalar API Reference (OpenAPI 3.0)
+│   ├── pages/
+│   │   ├── Dashboard.jsx    # Executive Overview Container
+│   │   ├── KPIPage.jsx      # Advanced KPI Analytics (Radar & Gauges)
+│   │   └── TransactionsPage.jsx # Full Transaction Management View
+│   ├── App.jsx              # Main Router & Theme Wrapper
+│   ├── index.css            # Global Design System (Glassmorphic Tokens)
+│   └── main.jsx             # React Entry Point
+├── project_details.txt      # Evaluator Cheat Sheet (8 Criteria)
+├── package.json             # Core Dependencies & Scripts
+└── README.md                # Project Documentation Hub
+```
+
 ## 📦 Setup Instructions
 
 1. **Clone the repository**:
