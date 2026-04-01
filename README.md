@@ -37,11 +37,38 @@ A modern, high-end finance tracking dashboard built with React, Chart.js, and An
 - **Routing**: React Router DOM (v6+)
 - **Documentation**: @scalar/api-reference-react
 
+## 🏗️ Architecture
+
+The Zorvyn Finance Dashboard follows a **Modular Frontend-Only Architecture**, prioritizing performance and interactive data visualization:
+
+- **State Distribution**: Utilizes a centralized `FinanceContext` (Provider Pattern) to distribute financial data, user roles, and theme settings throughout the component tree.
+- **Data Persistence**: Implemented a **LocalStorage Sync Layer** that automatically serializes and restores the application state, ensuring a persistent experience without a backend.
+- **Component Hierarchy**:
+  - **Containers**: `Dashboard`, `TransactionsPage`, `KPIPage`.
+  - **Shared UI**: `Navbar`, `Modal`, `StatsCard`, `FinanceChart`.
+- **Theme Engine**: A CSS variable-based system handles real-time theme swapping with 0-latency style updates.
+
+## 🔌 Used APIs & Libraries
+
+- **Chart.js (v4)**: Powered by `react-chartjs-2`, used for the Balance Trend (Line), Categorical Breakdown (Doughnut), and Spending Profile (Radar).
+- **Anime.js**: Orchestrates high-end 3D perspective animations and staggered reveal effects.
+- **Scalar API**: Integrated at `/docs` to provide a full-featured API documentation playground using OpenAPI 3.0.
+- **Lucide React**: A comprehensive icon suite for semantic UI representation.
+
+## 🪝 React Hooks Used
+
+- **`useFinance` (Custom Hook)**: A high-level abstraction for accessing and modifying the global financial state.
+- **`useState`**: For local component states (modal visibility, local toggles).
+- **`useReducer`**: For managing complex transaction logic and stats calculations.
+- **`useEffect`**: For lifecycle management, including theme application and localStorage synchronization.
+- **`useMemo`**: Essential for performant on-the-fly calculations of KPIs and chart data structures.
+- **`useRef`**: Used for imperative access to Chart.js instances (e.g., Reset Zoom functionality).
+
 ## 📦 Setup Instructions
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/1DS22CS099-SumaBhargavReddy/Zorvyn_Assingment.git
    cd Zorvyn_Assingment
    ```
 
