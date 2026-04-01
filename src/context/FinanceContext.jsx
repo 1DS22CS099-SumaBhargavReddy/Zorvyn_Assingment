@@ -29,7 +29,12 @@ export const FinanceProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
-    document.documentElement.className = theme === 'light' ? 'light-mode' : '';
+    const root = document.documentElement;
+    if (theme === 'light') {
+      root.classList.add('light-mode');
+    } else {
+      root.classList.remove('light-mode');
+    }
   }, [theme]);
 
   const handleLogin = (username, password) => {
@@ -64,6 +69,21 @@ export const FinanceProvider = ({ children }) => {
     setTransactions(transactions.filter(t => t.id !== id));
   };
 
+  const importTransactions = (newTransactions) => {
+    if (role !== 'Admin') return;
+    if (!Array.isArray(newTransactions)) return;
+
+    // Basic validation
+    const validTransactions = newTransactions.map(t => ({
+      ...t,
+      id: t.id || Date.now() + Math.random(),
+      date: t.date || new Date().toISOString().split('T')[0],
+      amount: Number(t.amount) || 0,
+    })).filter(t => t.category && t.type);
+
+    setTransactions(prev => [...validTransactions, ...prev]);
+  };
+
   const stats = {
     income: transactions.filter(t => t.type === 'income').reduce((acc, t) => acc + t.amount, 0),
     expenses: transactions.filter(t => t.type === 'expense').reduce((acc, t) => acc + t.amount, 0),
@@ -85,6 +105,7 @@ export const FinanceProvider = ({ children }) => {
       addTransaction,
       updateTransaction,
       deleteTransaction,
+      importTransactions,
       role,
       handleLogin,
       handleLogout,

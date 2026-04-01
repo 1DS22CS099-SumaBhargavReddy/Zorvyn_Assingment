@@ -12,11 +12,16 @@ const LoginModal = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     if (isOpen) {
-      animate('.login-content', { 
-        opacity: [0, 1], 
-        translateY: [30, 0],
-        scale: [0.95, 1]
-      }, { duration: 500, easing: 'ease-out-back' });
+      // Small delay to ensure modal is mounted before animating
+      requestAnimationFrame(() => {
+        animate('.login-content', { 
+          opacity: [0, 1], 
+          translateY: [30, 0],
+          scale: [0.95, 1]
+        }, { duration: 500, easing: 'ease-out-back' });
+      });
+
+      // Reset form but don't trigger cascading renders in the same tick as mount
       setFormData({ username: '', password: '' });
       setError('');
       setShowPassword(false);

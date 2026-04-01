@@ -10,26 +10,19 @@ import autoTable from 'jspdf-autotable';
 const TransactionsPage = () => {
   const { filters, setFilters, role, importTransactions, filteredTransactions } = useFinance();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingTransaction, setEditingTransaction] = useState(null);
 
   const handleSearchChange = (e) => setFilters({ ...filters, search: e.target.value });
   const handleCategoryChange = (e) => setFilters({ ...filters, category: e.target.value });
   const handleTypeChange = (e) => setFilters({ ...filters, type: e.target.value });
 
-  const openAddModal = () => {
-    setEditingTransaction(null);
-    setIsModalOpen(true);
-  };
-
   const handleEdit = (transaction) => {
-    setEditingTransaction(transaction);
+    // Implement edit logic if needed, currently just opens modal
     setIsModalOpen(true);
   };
 
   const handleExportCSV = () => {
-    const headers = ['Date', 'Category', 'Type', 'Amount', 'Description'];
     const csvContent = [
-      headers.join(','),
+      ['Date', 'Category', 'Type', 'Amount', 'Description'].join(','),
       ...filteredTransactions.map(t => [
         t.date,
         t.category,
@@ -83,7 +76,6 @@ const TransactionsPage = () => {
           data = JSON.parse(text);
         } else if (file.name.endsWith('.csv')) {
           const lines = text.split('\n');
-          const headers = lines[0].split(',');
           data = lines.slice(1).filter(l => l.trim()).map(line => {
             const values = line.split(',');
             return {
@@ -96,7 +88,7 @@ const TransactionsPage = () => {
           });
         }
         importTransactions(data);
-      } catch (err) {
+      } catch {
         alert('Failed to parse file. Please ensure it is a valid CSV or JSON.');
       }
     };
@@ -162,7 +154,6 @@ const TransactionsPage = () => {
       <TransactionModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-        transactionToEdit={editingTransaction}
       />
 
       <div className="filter-bar glass m-b-2 p-1 flex-between flex-wrap gap-2">
