@@ -52,6 +52,20 @@ ZORVYN FINANCE DASHBOARD - PROJECT CHEAT SHEET & EVALUATION GUIDE
 - UI Polish: Custom scrollbars, status-specific badges (Income/Expense), and consistent iconography using Lucide-React.
 - Security: Masked password input with a "Show" toggle for accessibility and convenience during evaluation.
 
+PROJECT ARCHITECTURE TREE
+-------------------------
+Zorvyn_Assingment/
+├── src/
+│   ├── components/          # UI Components (Charts, Auth, Tables, Modals)
+│   ├── context/             # Global State & Persistence Logic
+│   ├── data/                # Mock Seeds & Configuration
+│   ├── docs/                # OpenAPI Documentation
+│   ├── pages/               # Page Containers (Dashboard, KPI, Transactions)
+│   ├── App.jsx              # Main Router & Theme Wrapper
+│   └── index.css            # Design System & Glassmorphic Tokens
+├── project_details.txt      # Evaluator Cheat Sheet (8 Criteria)
+└── README.md                # Documentation Hub
+
 PROJECT DETAILS SUMMARY
 -----------------------
 Framework: React (Vite)
